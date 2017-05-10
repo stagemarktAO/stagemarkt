@@ -1,10 +1,1 @@
-ba40c0,::1,GET,http://stagemarkt.local/web/app_dev.php/,1494343392,,200
-84cd7a,::1,GET,http://stagemarkt.local/web/app_dev.php/login,1494343407,,200
-d34a62,::1,GET,http://stagemarkt.local/web/app_dev.php/login,1494343410,,200
-344212,::1,GET,http://stagemarkt.local/web/app_dev.php/login,1494343414,,200
-41c88a,::1,POST,http://stagemarkt.local/web/app_dev.php/login_check,1494343508,,302
-57dfcc,::1,GET,http://stagemarkt.local/web/app_dev.php/login,1494343509,,200
-ccb9f3,::1,GET,http://stagemarkt.local/web/app_dev.php/register,1494343516,,301
-fcbe9c,::1,GET,http://stagemarkt.local/web/app_dev.php/register/,1494343519,,200
-ce5b79,::1,POST,http://stagemarkt.local/web/app_dev.php/register/,1494343575,,302
-a06f67,::1,GET,http://stagemarkt.local/web/app_dev.php/register/confirmed,1494343576,,200
+6c6dfa,127.0.0.1,GET,http://stagemarkt.local/,1494400586,,200
