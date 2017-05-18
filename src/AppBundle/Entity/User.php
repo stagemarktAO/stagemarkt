@@ -25,4 +25,26 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 *
+	 * @Assert\NotBlank(message="Please enter your name.", groups={"Profile"})
+	 * @Assert\Length(
+	 *     min=3,
+	 *     max=255,
+	 *     minMessage="The name is too short.",
+	 *     maxMessage="The name is too long.",
+	 *     groups={"Registration", "Profile"}
+	 * )
+	 */
+	protected $name;
+
+	/**
+	 * @Assert\NotBlank(message="fos_user.password.blank", groups={"Registration", "ResetPassword", "ChangePassword"})
+	 * @Assert\Length(min=6,
+	 *     minMessage="Wachtwoord is te kort!",
+	 *     groups={"Registration", "Profile", "ResetPassword", "ChangePassword"})
+	 */
+	protected $plainPassword;
 }

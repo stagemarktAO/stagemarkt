@@ -79,3 +79,7 @@ fos_user:
     from_email:
             address: "roanvanadrichem98@live.nl"
             sender_name: "roan van adrichem"
+    registration:
+            form:
+                name: app_user_registration
+
