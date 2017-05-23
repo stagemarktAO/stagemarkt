@@ -10,7 +10,7 @@ class student extends Controller
      */
     public function showAction()
     {
-        return $this->render('student/dashboard.html', array(
+        return $this->render(':student:dashboard.html.twig', array(
             'tittle' => 'Dashboard',
         ));
     }

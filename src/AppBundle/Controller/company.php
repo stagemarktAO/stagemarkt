@@ -10,7 +10,7 @@ class company extends Controller
      */
     public function showAction()
     {
-        return $this->render('company/dashboard.html', array(
+        return $this->render('company/dashboard.html.twig', array(
             'tittle' => 'Dashboard',
         ));
     }
