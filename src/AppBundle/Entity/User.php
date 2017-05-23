@@ -41,10 +41,21 @@ class User extends BaseUser
 	protected $name;
 
 	/**
-	 * @Assert\NotBlank(message="fos_user.password.blank", groups={"Registration", "ResetPassword", "ChangePassword"})
+	 * @Assert\NotBlank(message="vul een wachtwoord in", groups={"Registration", "ResetPassword", "ChangePassword"})
 	 * @Assert\Length(min=6,
 	 *     minMessage="Wachtwoord is te kort!",
 	 *     groups={"Registration", "Profile", "ResetPassword", "ChangePassword"})
 	 */
 	protected $plainPassword;
+
+
+	/**
+	 * @ORM\Column(type="integer", length=10)
+	 *
+	 * @Assert\NotBlank(message="vul een telefoon nummer in!", groups={"Profile"})
+	 * @Assert\Length(min=10,
+	 *     minMessage="Telefoon nummer is te kort!",
+	 *     groups={"Profile"})
+	 */
+	protected $phoneNumber;
 }
