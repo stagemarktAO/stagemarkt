@@ -86,3 +86,8 @@ fos_user:
             form:
                 name: app_user_profile
 
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
