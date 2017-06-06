@@ -33,8 +33,8 @@ class User extends BaseUser
 	 * @Assert\Length(
 	 *     min=3,
 	 *     max=255,
-	 *     minMessage="The name is too short.",
-	 *     maxMessage="The name is too long.",
+	 *     minMessage="Naam is te kort.",
+	 *     maxMessage="Naam is te lang.",
 	 *     groups={"Registration", "Profile"}
 	 * )
 	 */
@@ -53,9 +53,32 @@ class User extends BaseUser
 	 * @ORM\Column(type="integer", length=10)
 	 *
 	 * @Assert\NotBlank(message="vul een telefoon nummer in!", groups={"Profile"})
-	 * @Assert\Length(min=10,
+	 * @Assert\Length(min=9,
 	 *     minMessage="Telefoon nummer is te kort!",
 	 *     groups={"Profile"})
 	 */
 	protected $phoneNumber;
+
+	public function setPhoneNumber($phoneNumber)
+
+	{
+		$this->phoneNumber = $phoneNumber;
+		return $this;
+	}
+
+	public function getPhoneNumber()
+	{
+		return $this->phoneNumber;
+	}
+
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
+
+	public function getName()
+	{
+		return $this->name;
+	}
 }
