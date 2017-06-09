@@ -82,12 +82,11 @@ fos_user:
     registration:
             form:
                 name: app_user_registration
+                type: AppBundle\Form\RegistrationType
     profile:
             form:
                 name: app_user_profile
+                type: AppBundle\Form\ProfileType
 
-assetic:
-    debug:          '%kernel.debug%'
-    use_controller: '%kernel.debug%'
-    filters:
-        cssrewrite: ~
+
+
