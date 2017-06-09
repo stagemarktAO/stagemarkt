@@ -33,9 +33,9 @@ class User extends BaseUser
 	 * @Assert\Length(
 	 *     min=3,
 	 *     max=255,
-	 *     minMessage="Naam is te kort.",
-	 *     maxMessage="Naam is te lang.",
-	 *     groups={"Registration", "Profile"}
+	 *     minMessage="The name is too short.",
+	 *     maxMessage="The name is too long.",
+	 *     groups={"Profile"}
 	 * )
 	 */
 	protected $name;
@@ -50,35 +50,67 @@ class User extends BaseUser
 
 
 	/**
-	 * @ORM\Column(type="integer", length=10)
+	 * @ORM\Column(type="string", length=10)
 	 *
 	 * @Assert\NotBlank(message="vul een telefoon nummer in!", groups={"Profile"})
-	 * @Assert\Length(min=9,
+	 * @Assert\Length(min=10,
 	 *     minMessage="Telefoon nummer is te kort!",
 	 *     groups={"Profile"})
 	 */
 	protected $phoneNumber;
 
-	public function setPhoneNumber($phoneNumber)
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $loginType;
 
-	{
-		$this->phoneNumber = $phoneNumber;
-		return $this;
-	}
+    /**
+     * Set loginType
+     *
+     * @param string $loginType
+     *
+     * @return User
+     */
 
-	public function getPhoneNumber()
-	{
-		return $this->phoneNumber;
-	}
+    public function setloginType($loginType)
 
-	public function setName($name)
-	{
-		$this->name = $name;
-		return $this;
-	}
+    {
+        $this->loginType = $loginType;
+        return $this;
+    }
 
-	public function getName()
-	{
-		return $this->name;
-	}
+    /**
+     * Get loginType
+     *
+     * @return string
+     */
+
+    public function getloginType()
+
+    {
+        return $this->loginType;
+    }
+
+    public function setPhoneNumber($phoneNumber)
+
+    {
+        $this->phoneNumber = $phoneNumber;
+        return $this;
+    }
+
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
