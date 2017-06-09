@@ -25,5 +25,5 @@ class RegistrationType extends AbstractType
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';
 	}
 
-
+    //test
 }
