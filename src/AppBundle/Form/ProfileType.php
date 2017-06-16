@@ -21,14 +21,27 @@ class ProfileType extends AbstractType
 			$constraintsOptions['groups'] = array(reset($options['validation_groups']));
 		}
 
-		$builder->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
+		$builder
+			->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
 			'label' => 'Huidige wachtwoord',
 			'translation_domain' => 'FOSUserBundle',
 			'mapped' => false,
 			'constraints' => new UserPassword($constraintsOptions),
-		));
-		$builder->add('phoneNumber');
-		$builder->add('name');
+			))
+			->add('phoneNumber', null, array(
+				'label' => 'Telefoon nummer'
+			))
+			->add('name', null, array(
+				'label' => 'Volledige naam  '
+			))
+			->add('username', null, array(
+				'label' => 'Gebruikersnaam',
+				'translation_domain' => 'FOSUserBundle'
+			))
+			->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+				'label' => 'Email adres',
+				'translation_domain' => 'FOSUserBundle'
+			));
 	}
 
 	public function getParent()
