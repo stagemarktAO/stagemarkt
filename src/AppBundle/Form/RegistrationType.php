@@ -14,7 +14,7 @@ class RegistrationType extends AbstractType
         	'choices' => [
         		'Bedrijf' => 0,
 		        'Student' => 1
-	        ]
+	        ],'attr' => array('class'=>'form-control')
         ));
         $builder->add('name');
         $builder->add('phoneNumber');
