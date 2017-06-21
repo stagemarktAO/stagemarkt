@@ -64,6 +64,14 @@ class User extends BaseUser
      */
     protected $loginType;
 
+	/**
+	 ** @ORM\Column(type="string")
+	 *
+	 * @Assert\NotBlank(message="Please, upload your Curriculum Vitae.")
+	 * @Assert\File(mimeTypes={ "application/vnd.openxmlformats-officedocument.wordprocessingml.document" })
+	 */
+	protected $curriculumVitae;
+
     /**
      * Set loginType
      *
@@ -112,5 +120,16 @@ class User extends BaseUser
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setCurriculumVitae($curriculumVitae)
+    {
+    	$this->curriculumVitae = $curriculumVitae;
+    	return $this;
+    }
+
+    public function getCurriculumVitae()
+    {
+    	return $this->curriculumVitae;
     }
 }

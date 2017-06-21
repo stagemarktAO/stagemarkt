@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProfileType extends AbstractType
 {
@@ -21,14 +22,31 @@ class ProfileType extends AbstractType
 			$constraintsOptions['groups'] = array(reset($options['validation_groups']));
 		}
 
-		$builder->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
-			'label' => 'Huidige wachtwoord',
+		$builder
+			->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
+			'label' => 'Huidige wachtwoord: ',
 			'translation_domain' => 'FOSUserBundle',
 			'mapped' => false,
 			'constraints' => new UserPassword($constraintsOptions),
-		));
-		$builder->add('phoneNumber');
-		$builder->add('name');
+			))
+			->add('phoneNumber', null, array(
+				'label' => 'Telefoon nummer: '
+			))
+			->add('name', null, array(
+				'label' => 'Volledige naam: '
+			))
+			->add('username', null, array(
+				'label' => 'Gebruikersnaam: ',
+				'translation_domain' => 'FOSUserBundle'
+			))
+			->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array(
+				'label' => 'Email adres: ',
+				'translation_domain' => 'FOSUserBundle'
+			))
+			->add('curriculumVitae', FileType::class, array(
+				'label' => 'Curriculum Vitae: ',
+				'data_class' => null
+			));
 	}
 
 	public function getParent()
